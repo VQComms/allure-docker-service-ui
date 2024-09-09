@@ -5,8 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 
-import allure from "../../assets/images/allure.png";
-import docker from "../../assets/images/docker.png";
+import vq_logo from "../../assets/images/VQ_Logo_4col_landscape.png";
 
 const styles = (theme) => ({
   root: {
@@ -36,10 +35,9 @@ class AllureDockerHomePage extends Component {
           <Grid item xs={12}>
             <Paper className={classes.paper}>
               <div style={{ height: "100%" }} align="center">
-                <img src={allure} alt="allure" />
-                <img src={docker} alt="docker" />
+                <img src={vq_logo} alt="allure" />
                 <Typography variant="h3" color="textSecondary" align="center">
-                  ALLURE DOCKER SERVICE UI
+                  VQ Test Reporter
                 </Typography>
               </div>
             </Paper>

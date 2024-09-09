@@ -81,7 +81,7 @@ class AllureDockerBar extends Component {
           })}
         >
           <AllureDockerToolbar
-            title="Allure Docker Service UI"
+            title="VQ Test Reporter"
             isSideDrawerOpen={this.state.openSideDrawer}
             handleSideDrawerOpen={this.handleSideDrawerOpen}
             handleSideDrawerClose={this.handleSideDrawerClose}
@@ -104,7 +104,7 @@ class AllureDockerBar extends Component {
         />
 
         <AllureDockerProjectsSideDrawer
-          title="Allure Docker Service UI"
+          title="VQ Test Reporter"
           projects={this.props.projects}
           isSideDrawerOpen={this.state.openSideDrawer}
           handleSideDrawerClose={this.handleSideDrawerClose}
