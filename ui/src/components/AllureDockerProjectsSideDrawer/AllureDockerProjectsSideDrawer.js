@@ -10,6 +10,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
+import Accordion from '@mui/material/Accordion';
 
 import { Link, withRouter } from "react-router-dom";
 
@@ -40,19 +41,44 @@ const styles = (theme) => ({
 const allureDockerProjectsSideDrawer = (props) => {
   const { classes } = props;
 
+  let prefixDict = {};
+  
+  for (let project in props.projects) {
+    
+    let prefix = project.split('-')[0];
+
+    if (!prefixDict[prefix]) {
+      prefixDict[prefix] = [];
+    }
+    
+    prefixDict[prefix].push(project);
+  }
+  
   const elements = [];
-  for (let key in props.projects) {
+  
+  for (let prefixDictKey in prefixDict) {
+    const subListElements = [];
+
+    for (let projectNameIndex in prefixDict[prefixDictKey]) {
+      let projectName = prefixDict[prefixDictKey][projectNameIndex];
+
+      subListElements.push(
+          <Link
+              to={`/projects/${projectName}`}
+              key={projectName}
+              style={{color: "inherit", textDecoration: "inherit"}}
+          >
+            <ListItem button id={projectName} onClick={() => props.selectProject({projectName: projectName})}>
+              <ListItemText primary={projectName}/>
+            </ListItem>
+          </Link>
+      );
+    }
+
     elements.push(
-      <Link
-        to={`/projects/${key}`}
-        key={key}
-        style={{ color: "inherit", textDecoration: "inherit" }}
-      >
-        <ListItem button id={key} onClick={() => props.selectProject(key)}>
-          <ListItemText primary={key} />
-        </ListItem>
-      </Link>
-    );
+      <Accordion style={{color: "inherit", textDecoration: "inherit"}} trigger={prefixDictKey}>
+        <List>{subListElements}</List>
+      </Accordion>);
   }
 
   return (
