@@ -10,9 +10,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
-import Accordion from '@mui/material/Accordion';
-
 import { Link, withRouter } from "react-router-dom";
+import Collapsible from "react-collapsible";
 
 const drawerWidth = 240;
 const styles = (theme) => ({
@@ -76,9 +75,11 @@ const allureDockerProjectsSideDrawer = (props) => {
     }
 
     elements.push(
-      <Accordion style={{color: "inherit", textDecoration: "inherit"}} trigger={prefixDictKey}>
-        <List>{subListElements}</List>
-      </Accordion>);
+        <ListItem style={{color: "inherit", textDecoration: "inherit"}}>
+          <Collapsible style={{color: "inherit", textDecoration: "inherit"}} trigger={prefixDictKey}>
+            <List>{subListElements}</List>
+          </Collapsible>
+        </ListItem>);
   }
 
   return (
