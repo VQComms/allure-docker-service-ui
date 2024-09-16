@@ -7,7 +7,7 @@ RUN npm install && \
     npm run build
 
 ######
-FROM node:12.18.3-buster-slim
+FROM --platform=linux/arm64 node:12.18.3-buster-slim
 ARG BUILD_DATE
 ARG VERSION
 ARG VCS_REF
