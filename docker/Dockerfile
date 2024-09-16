@@ -1,5 +1,5 @@
 ######
-FROM node:12.18.3-buster-slim AS builder
+FROM --platform=linux/arm64 node:12.18.3-buster-slim AS builder
 ENV ROOT=/code
 WORKDIR $ROOT
 COPY ui $ROOT
